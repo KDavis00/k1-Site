@@ -191,23 +191,15 @@ body {
 
 .hero-image-container {
   flex: 1;
-  display: flex-start;
-  justify-content: center;
-  align-items: center;
+  display: flex;
+  align-items: flex-end; /* pushes image to the bottom edge */
+}
+
+.hero-image-container img {
   max-width: 100%;
-  max-height: 100%;
-}
-
- .hero-image-container img {
-  position:absolute;
-  top: -65px;
   height: auto;
-  max-width: 370px; /* Increase max width */
-  max-height: 3700px; /* Increase max height */
   object-fit: contain;
-  
 }
-
 
 /* Media Queries for Responsiveness */
 
