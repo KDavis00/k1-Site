@@ -8,7 +8,8 @@ export default function Hero() {
         <p>What’s up! I’m Kae, an amateur dev mixing curiosity with caffeine. Glad you popped by.</p>
       </div>
       <div className="hero-image-container">
-        <img src="/assets/Art/k1_cool.png" alt="Cool avatar" />
+       <img src={`${import.meta.env.BASE_URL}assets/Art/k1_cool.png`} alt="Cool avatar" />
+
 
       </div>
     </section>
