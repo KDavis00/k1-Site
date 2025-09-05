@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import Hero from "./components/Hero.jsx";
 import About from "./components/About.jsx";
 import Projects from "./components/Projects.jsx";
@@ -6,6 +7,7 @@ import Contact from "./components/Contact.jsx";
 import TimeCard from "./components/TimeCard.jsx";
 import SpotifyCard from "./components/SpotifyCard.jsx";
 import Art from "./components/ArtShowcase.jsx";
+import Skills from "./components/Skills.jsx";
 
 export default function App() {
   const [theme, setTheme] = useState("light"); // default to light mode
@@ -48,7 +50,9 @@ export default function App() {
         <div className="card about">
           <About />
         </div>
-
+        <div className="card skills">
+          <Skills />
+        </div>
         <div className="card projects">
           <Projects />
         </div>
@@ -60,7 +64,7 @@ export default function App() {
         <div className="card ArtShowcase">
           <Art />
         </div>
-
+    
         <div className="card spotify">
           <SpotifyCard />
         </div>

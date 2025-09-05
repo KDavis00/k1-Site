@@ -25,7 +25,7 @@ export default function ArtShowcase() {
   const [index, setIndex] = useState(0);
 
   return (
-    <section id="art">
+    <section class="art">
       <h2>Art Showcase</h2>
       <p>
         This is my little corner where I share Art/ music projects, fresh ideas, and creative vibes.

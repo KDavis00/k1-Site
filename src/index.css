@@ -1,263 +1,280 @@
 @import url(https://db.onlinewebfonts.com/c/2b0a785e5bf68ad428cf24d74bb5b9ad?family=Volte);
 
 :root {
-	--bg-color: #dedcff;
-	--text-color: #111;
-	--card-bg: #ececf3;
-	--card-border: #969696;
-	--card-glow1: #969696;
-	--card-glow2: #969696;
+    --bg-color: #dedcff;
+    --text-color: #111;
+    --card-bg: #ececf3;
+    --card-border: #969696;
+    --card-glow1: #969696;
+    --card-glow2: #969696;
 }
 
 [data-theme="dark"] {
-	--bg-color: #222;
-	--text-color: #eee;
-	--card-bg: #222;
-	--card-border: #eeeeee;
-	--card-glow1: #9d88da;
-	--card-glow2: #9d88da;
+    --bg-color: #222;
+    --text-color: #eee;
+    --card-bg: #222;
+    --card-border: #eeeeee;
+    --card-glow1: #9d88da;
+    --card-glow2: #9d88da;
 }
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html,
-body {
-	font-family: "Volte", sans-serif;
-	background-color: var(--bg-color);
-	color: var(--text-color);
-	min-height: 100vh;
+html, body {
+    font-family: "Volte", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* =======================
+   MAIN GRID
+======================= */
 .cards-container {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: repeat(6, 1fr);
-	gap: 1.5rem;
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 1rem;
-	justify-content: space-evenly;
-	/* Center cards in the grid */
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, auto);
+    gap: 1.5rem;
+    padding: 1.5rem;
+
+    grid-template-areas:
+        "hero hero hero hero about about"
+        "hero hero hero hero about about"
+        "projects projects skills skills contact contact"
+        "projects projects spotify spotify contact contact"
+        "projects projects time time contact contact"
+        "twitch twitch . . art art";
 }
 
+.hero     { grid-area: hero; }
+.about    { grid-area: about; }
+.projects { grid-area: projects; }
+.contact  { grid-area: contact; }
+.skills   { grid-area: skills; }
+.spotify  { grid-area: spotify; }
+.time     { grid-area: time; }
+.art      { grid-area: art; }
+.twitch   { grid-area: twitch; }
+
+/* =======================
+   CARD STYLES
+======================= */
 .card {
-	background-color: var(--card-bg);
-	border: 2px solid var(--card-border);
-	border-radius: 8px;
-	padding: 20px;
-	color: var(--text-color);
-	box-shadow: 0 0 5px var(--card-glow1), 0 0 10px var(--card-glow2);
-	transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease, color 0.3s ease;
-	overflow: hidden;
-	word-wrap: break-word;
-
-
-	max-width: 100%;
+    background-color: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 8px;
+    padding: 20px;
+    color: var(--text-color);
+    box-shadow: 0 0 5px var(--card-glow1), 0 0 10px var(--card-glow2);
+    transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease, color 0.3s ease;
+    overflow: hidden;
 }
 
 .card:hover {
-	box-shadow: 0 0 10px var(--card-glow1), 0 0 20px var(--card-glow2);
+    box-shadow: 0 0 10px var(--card-glow1), 0 0 20px var(--card-glow2);
 }
 
-
-.hero {
-    grid-column: span 4 / span 4;
-    grid-row: span 2 / span 2;
+/* =======================
+   HERO
+======================= */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem;
 }
 
-.about {
-    grid-column: span 2 / span 2;
-    grid-row: span 2 / span 2;
-    grid-column-start: 5;
+.hero-content {
+    flex: 1;
 }
 
-.projects {
-    grid-column: span 2 / span 2;
-    grid-row: span 3 / span 3;
-    grid-column-start: 1;
-    grid-row-start: 3;
+.hero-image-container img {
+    width: 80%;
+    max-width: 400px;
+    height: auto;
+    object-fit: contain;
 }
 
-.contact {
-    grid-column: span 2 / span 2;
-    grid-row: span 3 / span 3;
-    grid-column-start: 5;
-    grid-row-start: 3;
-}
+/* =======================
+   SKILLS
+======================= */
 
 .skills {
-    grid-column: span 2 / span 2;
-    grid-column-start: 3;
-    grid-row-start: 3;
+    display: flex;
+    flex-direction: column; /* stack title and grid vertically */
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem 0;
+    box-sizing: border-box;
 }
 
-.spotify {
-    grid-column: span 2 / span 2;
-    grid-column-start: 3;
-    grid-row-start: 4;
+.skills .card-title {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2rem;
 }
 
-.status {
-    grid-column: span 2 / span 2;
-    grid-row: span 2 / span 2;
-    grid-column-start: 3;
-    grid-row-start: 5;
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 logos per row on desktop */
+    gap: 1rem;
+    justify-items: center; /* center items horizontally */
+    align-items: center;   /* center items vertically */
+    width: 100%;
 }
 
-.art {
-    grid-column: span 2 / span 2;
-    grid-column-start: 5;
-    grid-row-start: 6;
+.skill-item {
+    display: flex;
+    flex-direction: column; /* logo above name */
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.8rem;
+    text-align: center;
+	transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.twitch {
-    grid-column: span 2 / span 2;
-    grid-column-start: 1;
-    grid-row-start: 6;
+.skill-item img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+.skill-item:hover {
+    transform: scale(1.05); /* smaller scale for subtle pop */
+}
+/* =======================
+   TIME CARD
+======================= */
+.time-card p {
+    font-size: 2rem;
+    font-weight: 200;
+    letter-spacing: 0.5px;
 }
 
-/* Contact Form Styles */
+/* =======================
+   CONTACT FORM
+======================= */
 .contact-form {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-	max-width: 450px;
-	margin: 0 auto;
-	font-family: "Volte", sans-serif;
-	color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 450px;
+    margin: 0 auto;
 }
 
 .contact-form h2 {
-	text-align: center;
-	margin-bottom: 1.5rem;
-	font-weight: 700;
-	font-size: 1.8rem;
-	letter-spacing: 1.2px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    font-size: 1.8rem;
 }
 
 .contact-form label {
-	font-weight: 600;
-	margin-bottom: 0.25rem;
-	color: var(--text-color);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
 }
 
 .contact-form input,
 .contact-form textarea {
-	background-color: var(--card-bg);
-	border: 2px solid var(--card-border);
-	border-radius: 8px;
-	padding: 12px 15px;
-	font-size: 1rem;
-	color: var(--text-color);
-	transition: border-color 0.3s ease, box-shadow 0.3s ease;
-	resize: vertical;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-	color: #999;
+    background-color: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 8px;
+    padding: 12px 15px;
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-	border-color: var(--card-glow1);
-	box-shadow: 0 0 8px var(--card-glow1);
-	outline: none;
+    border-color: var(--card-glow1);
+    box-shadow: 0 0 8px var(--card-glow1);
+    outline: none;
 }
 
 .contact-form button {
-	background-color: var(--card-bg);
-	color: var(--text-color);
-	border: none;
-	border-radius: 8px;
-	padding: 14px 20px;
-	font-size: 1.1rem;
-	font-weight: 700;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
-	box-shadow: 0 0 8px var(--card-glow1);
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: none;
+    border-radius: 8px;
+    padding: 14px 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 8px var(--card-glow1);
 }
 
 .contact-form button:hover {
-	background-color: var(--card-bg);
-	box-shadow: 0 0 12px var(--card-glow2);
+    box-shadow: 0 0 12px var(--card-glow2);
 }
 
-/* Hero Section Styles */
-.hero-section {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 2rem;
-	padding: 2rem;
+/* =======================
+   RESPONSIVE
+======================= */
+@media (max-width: 1024px) {
+    .cards-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas:
+            "hero hero hero"
+            "about about about"
+            "projects projects projects"
+            "skills skills skills"
+            "spotify spotify spotify"
+            "time time time"
+            "contact contact contact"
+            "art art art";
+    }
+
+    .skills {
+        grid-template-columns: repeat(3, 1fr); /* 3 per row */
+    }
+
+    .skill-item img {
+        width: 30px;
+        height: 30px;
+    }
 }
 
-.hero-content {
-	flex: 1;
-	color: var(--text-color);
+@media (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "hero"
+            "about"
+            "projects"
+            "skills"
+            "spotify"
+            "time"
+            "contact"
+            "twitch"
+            "art";
+    }
+
+    .skills {
+        grid-template-columns: repeat(2, 1fr); /* 2 per row */
+    }
+
+    .skill-item img {
+        width: 24px;
+        height: 24px;
+    }
 }
 
+@media (max-width: 480px) {
+    .skills {
+        grid-template-columns: 1fr; /* 1 per row */
+    }
 
-.hero-image-container img {
-	position: right bottom;
-	width: 80%;
-	transform: translateY(-1.5%);
-	height: auto;
-	max-width: 400px;
-	/* Increase max width */
-	max-height: 400px;
-	/* Increase max height */
-	object-fit: contain;
-
-}
-
-
-/* Media Queries for Responsiveness */
-
-@media (max-width: 1080px) {
-	.cards-container {
-		grid-template-columns: 1fr;
-	}
-
-	.hero-section {
-		flex-direction: column;
-		text-align: center;
-	}
-
-	.hero-image-container {
-		justify-content: center;
-		margin-top: 1rem;
-	}
-
-	.hero {
-		grid-column: 1 / 3 !important;
-	}
-
-	.about,
-	.projects,
-	.contact,
-	.spotify,
-	.time {
-		grid-column: 1 / 3 !important;
-	}
-}
-
-.time-card p {
-	font-size: 2rem;
-	font-weight: 200;
-	letter-spacing: 0.5px;
-	color: var(--text-color);
-}
-
-.spotify-time-wrapper {
-
-	grid-column: 2 / 3;
-	grid-row: 2 / 2;
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
+    .skill-item img {
+        width: 20px;
+        height: 20px;
+    }
 }
