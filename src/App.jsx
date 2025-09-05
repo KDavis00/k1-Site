@@ -5,6 +5,7 @@ import Projects from "./components/Projects.jsx";
 import Contact from "./components/Contact.jsx";
 import TimeCard from "./components/TimeCard.jsx";
 import SpotifyCard from "./components/SpotifyCard.jsx";
+import Art from "./components/ArtShowcase.jsx";
 
 export default function App() {
   const [theme, setTheme] = useState("light"); // default to light mode
@@ -55,8 +56,12 @@ export default function App() {
         <div className="card contact">
           <Contact />
         </div>
- <div className="spotify-time-wrapper ">
-        <div className=" card spotify">
+
+        <div className="card ArtShowcase">
+          <Art />
+        </div>
+
+        <div className="card spotify">
           <SpotifyCard />
         </div>
 
@@ -64,8 +69,6 @@ export default function App() {
           <TimeCard />
         </div>
       </div>
-      </div>
     </>
   );
 }
-
