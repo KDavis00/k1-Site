@@ -64,70 +64,60 @@ body {
 }
 
 
-.time {
-
-	font-size: 2rem;
-	font-weight: 600;
-	letter-spacing: 0.5px;
-	color: var(--text-color);
-	text-align: center;
-}
-
 .hero {
-	grid-column: span 4 / span 4;
-	grid-row: span 2 / span 2;
+    grid-column: span 4 / span 4;
+    grid-row: span 2 / span 2;
 }
 
 .about {
-	grid-column: span 2 / span 2;
-	grid-row: span 2 / span 2;
-	grid-column-start: 5;
+    grid-column: span 2 / span 2;
+    grid-row: span 2 / span 2;
+    grid-column-start: 5;
 }
 
 .projects {
-	grid-column: span 2 / span 2;
-	grid-row: span 3 / span 3;
-	grid-column-start: 1;
-	grid-row-start: 3;
-
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-column-start: 1;
+    grid-row-start: 3;
 }
 
 .contact {
-	grid-column: span 2 / span 2;
-	grid-row: span 3 / span 3;
-	grid-column-start: 5;
-	grid-row-start: 3;
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-column-start: 5;
+    grid-row-start: 3;
 }
 
 .skills {
-	grid-column: span 2 / span 2;
-	grid-column-start: 3;
-	grid-row-start: 3;
+    grid-column: span 2 / span 2;
+    grid-column-start: 3;
+    grid-row-start: 3;
 }
 
 .spotify {
-	grid-column: span 2 / span 2;
-	grid-column-start: 3;
-	grid-row-start: 4;
+    grid-column: span 2 / span 2;
+    grid-column-start: 3;
+    grid-row-start: 4;
 }
 
 .status {
-	grid-column: span 2 / span 2;
-	grid-row: span 2 / span 2;
-	grid-column-start: 3;
-	grid-row-start: 5;
+    grid-column: span 2 / span 2;
+    grid-row: span 2 / span 2;
+    grid-column-start: 3;
+    grid-row-start: 5;
 }
 
 .art {
-	grid-column: span 2 / span 2;
-	grid-column-start: 5;
-	grid-row-start: 6;
+    grid-column: span 2 / span 2;
+    grid-column-start: 5;
+    grid-row-start: 6;
 }
 
 .twitch {
-	grid-column: span 2 / span 2;
-	grid-column-start: 1;
-	grid-row-start: 6;
+    grid-column: span 2 / span 2;
+    grid-column-start: 1;
+    grid-row-start: 6;
 }
 
 /* Contact Form Styles */
