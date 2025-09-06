@@ -1,23 +1,16 @@
-import { useState } from 'react';
-import Lightbox from 'yet-another-react-lightbox';
-import 'yet-another-react-lightbox/styles.css';
+import { useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+
+const BASE = import.meta.env.BASE_URL;
 
 const images = [
-  {
-    src: '/assets/Art/chikko-hluv.png',
-    title: 'Chikko Love Holiday',
-    tag: 'Digital Painting',
-  },
-  {
-    src: '/assets/Art/k1-ded.png',
-    title: 'K1 Dead',
-    tag: 'Digital Painting',
-  },
-  {
-    src: '/assets/Art/buffsona.jpg',
-    title: 'Natures Form',
-    tag: 'Digital Painting',
-  },
+  { src: `${BASE}assets/Art/chikko-hluv.png`, title: "Chikko Love Holiday" },
+  { src: `${BASE}assets/Art/k1-ded.png`, title: "K1 Dead" },
+  { src: `${BASE}assets/Art/buffsona.jpg`, title: "Natures Form" },
+    { src: `${BASE}assets/Art/k1_cool.png`, title: "K1 cool" },
+    { src: `${BASE}assets/Art/CHIKKO_SPEEP.png`, title: "CHIKKO SPEEP" },
+  // Add more images
 ];
 
 export default function ArtShowcase() {
@@ -25,37 +18,26 @@ export default function ArtShowcase() {
   const [index, setIndex] = useState(0);
 
   return (
-    <section class="art">
-      <h2>Art Showcase</h2>
-      <p>
-        This is my little corner where I share Art/ music projects, fresh ideas, and creative vibes.
-      </p>
+    <section className="art" id="art">
+      <h2 className="card-title">Art Showcase</h2>
       <div className="art-grid">
-        {images.map((art, i) => (
+        {images.map((img, i) => (
           <div
             key={i}
             className="art-card"
-            onClick={() => {
-              setIndex(i);
-              setIsOpen(true);
-            }}
-            style={{ cursor: 'pointer' }}
+            onClick={() => { setIndex(i); setIsOpen(true); }}
           >
-            <img src={art.src} alt={art.title} />
-            <p className="art-title">{art.title}</p>
-            <span className="art-tag">{art.tag}</span>
+            <img src={img.src} alt={img.title} />
+            <div className="art-overlay">{img.title}</div>
           </div>
         ))}
       </div>
 
       <Lightbox
         open={isOpen}
-        close={() => setIsOpen(false)}
         index={index}
-        slides={images.map((img) => ({
-          src: img.src,
-          description: `${img.title} – ${img.tag}`,
-        }))}
+        slides={images.map(img => ({ src: img.src }))}
+        onClose={() => setIsOpen(false)}
       />
     </section>
   );

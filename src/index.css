@@ -1,5 +1,8 @@
 @import url(https://db.onlinewebfonts.com/c/2b0a785e5bf68ad428cf24d74bb5b9ad?family=Volte);
 
+/* =======================
+   THEME VARIABLES
+======================= */
 :root {
     --bg-color: #dedcff;
     --text-color: #111;
@@ -18,6 +21,9 @@
     --card-glow2: #9d88da;
 }
 
+/* =======================
+   GLOBAL STYLES
+======================= */
 * {
     margin: 0;
     padding: 0;
@@ -29,7 +35,13 @@ html, body {
     background-color: var(--bg-color);
     color: var(--text-color);
     min-height: 100vh;
+    scroll-behavior: smooth;
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+img {
+    max-width: 100%;
+    display: block;
 }
 
 /* =======================
@@ -37,18 +49,17 @@ html, body {
 ======================= */
 .cards-container {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(6, auto);
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(7, auto);
     gap: 1.5rem;
     padding: 1.5rem;
-
     grid-template-areas:
         "hero hero hero hero about about"
         "hero hero hero hero about about"
         "projects projects skills skills contact contact"
         "projects projects spotify spotify contact contact"
         "projects projects time time contact contact"
-        "twitch twitch . . art art";
+        "art art art art . .";
 }
 
 .hero     { grid-area: hero; }
@@ -59,7 +70,6 @@ html, body {
 .spotify  { grid-area: spotify; }
 .time     { grid-area: time; }
 .art      { grid-area: art; }
-.twitch   { grid-area: twitch; }
 
 /* =======================
    CARD STYLES
@@ -71,7 +81,7 @@ html, body {
     padding: 20px;
     color: var(--text-color);
     box-shadow: 0 0 5px var(--card-glow1), 0 0 10px var(--card-glow2);
-    transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease, color 0.3s ease;
+    transition: all 0.3s ease;
     overflow: hidden;
 }
 
@@ -95,8 +105,8 @@ html, body {
 }
 
 .hero-image-container img {
-    width: 80%;
-    max-width: 400px;
+    width: 90%;           /* bigger image */
+    max-width: 500px;
     height: auto;
     object-fit: contain;
 }
@@ -104,39 +114,35 @@ html, body {
 /* =======================
    SKILLS
 ======================= */
-
 .skills {
     display: flex;
-    flex-direction: column; /* stack title and grid vertically */
+    flex-direction: column;
     gap: 1rem;
-    width: 100%;
     padding: 1rem 0;
-    box-sizing: border-box;
 }
 
 .skills .card-title {
     text-align: center;
-    font-weight: 600;
-    font-size: 1.2rem;
+    font-weight: 700;
+    font-size: 1.8rem;
 }
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 logos per row on desktop */
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
-    justify-items: center; /* center items horizontally */
-    align-items: center;   /* center items vertically */
-    width: 100%;
+    justify-items: center;
+    align-items: center;
 }
 
 .skill-item {
     display: flex;
-    flex-direction: column; /* logo above name */
+    flex-direction: column;
     align-items: center;
     gap: 0.25rem;
     font-size: 0.8rem;
     text-align: center;
-	transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s ease;
 }
 
 .skill-item img {
@@ -144,9 +150,57 @@ html, body {
     height: 40px;
     object-fit: contain;
 }
+
 .skill-item:hover {
-    transform: scale(1.05); /* smaller scale for subtle pop */
+    transform: scale(1.05);
 }
+
+/* =======================
+   ART SHOWCASE
+======================= */
+.art {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.art .card-title {
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.art-grid {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: nowrap; /* no wrapping */
+    overflow-x: auto;  /* allow scrolling if container is too small */
+    width: 100%;
+    padding-left: 5%; /* space for scrollbar */
+}
+
+.art-card {
+    flex: 0 0 auto; /* don't shrink, take content width */
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 200px; /* adjust size of each card */
+}
+
+.art-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.art-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
 /* =======================
    TIME CARD
 ======================= */
@@ -187,7 +241,7 @@ html, body {
     padding: 12px 15px;
     font-size: 1rem;
     color: var(--text-color);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .contact-form input:focus,
@@ -195,6 +249,7 @@ html, body {
     border-color: var(--card-glow1);
     box-shadow: 0 0 8px var(--card-glow1);
     outline: none;
+    resize: vertical;
 }
 
 .contact-form button {
@@ -206,7 +261,7 @@ html, body {
     font-size: 1.1rem;
     font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
     box-shadow: 0 0 8px var(--card-glow1);
 }
 
@@ -220,7 +275,6 @@ html, body {
 @media (max-width: 1024px) {
     .cards-container {
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: auto;
         grid-template-areas:
             "hero hero hero"
             "about about about"
@@ -232,20 +286,23 @@ html, body {
             "art art art";
     }
 
-    .skills {
-        grid-template-columns: repeat(3, 1fr); /* 3 per row */
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .skill-item img {
         width: 30px;
         height: 30px;
     }
+
+    .art-card {
+        width: 200px;
+    }
 }
 
 @media (max-width: 768px) {
     .cards-container {
         grid-template-columns: 1fr;
-        grid-template-rows: auto;
         grid-template-areas:
             "hero"
             "about"
@@ -254,27 +311,34 @@ html, body {
             "spotify"
             "time"
             "contact"
-            "twitch"
             "art";
     }
 
-    .skills {
-        grid-template-columns: repeat(2, 1fr); /* 2 per row */
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .skill-item img {
         width: 24px;
         height: 24px;
     }
+
+    .art-card {
+        width: 160px;
+    }
 }
 
 @media (max-width: 480px) {
-    .skills {
-        grid-template-columns: 1fr; /* 1 per row */
+    .skills-grid {
+        grid-template-columns: 1fr;
     }
 
     .skill-item img {
         width: 20px;
         height: 20px;
+    }
+
+    .art-card {
+        width: 120px;
     }
 }

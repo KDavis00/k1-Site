@@ -61,7 +61,7 @@ export default function App() {
           <Contact />
         </div>
 
-        <div className="card ArtShowcase">
+        <div className="card art">
           <Art />
         </div>
     
