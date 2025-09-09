@@ -21,7 +21,7 @@ export default function Contact() {
     emailjs
       .send(
         "service_osy8xna",        // Service ID
-        "template_iby53hg",       // Template ID
+        "template_sc8aq4f",       // Template ID
         formData,
         "KfIGDVd_GVzsxok2v"        // Public Key
       )
