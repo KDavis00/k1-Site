@@ -4,6 +4,7 @@ import emailjs from "emailjs-com";
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
+    subject: "",
     email: "",
     message: "",
   });
