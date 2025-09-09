@@ -28,7 +28,8 @@ export default function Contact() {
       )
       .then(() => {
         alert("Thankj you! Message sent to Kae!");
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: "", subject: "", email: "", message: "" });
+
       })
       .catch((error) => {
         console.error(" Email send failed:", error);
