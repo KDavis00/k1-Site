@@ -50,6 +50,16 @@ export default function Contact() {
         placeholder="Your full name"
         required
       />
+      <label htmlFor="subject">Subject</label>
+<input
+  id="subject"
+  name="subject"
+  type="text"
+  value={formData.subject}
+  onChange={handleChange}
+  placeholder="Subject"
+  required
+/>
 
       <label htmlFor="email">Email</label>
       <input
