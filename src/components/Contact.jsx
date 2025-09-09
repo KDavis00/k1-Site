@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import emailjs from "emailjs-com";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -16,9 +17,22 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your submit logic here (API call, email send, etc.)
-    alert("Message sent!");
-    setFormData({ name: "", email: "", message: "" });
+
+    emailjs
+      .send(
+        "service_osy8xna",        // Service ID
+        "template_iby53hg",       // Template ID
+        formData,
+        "KfIGDVd_GVzsxok2v"        // Public Key
+      )
+      .then(() => {
+        alert("Thankj you! Message sent to Kae!");
+        setFormData({ name: "", email: "", message: "" });
+      })
+      .catch((error) => {
+        console.error(" Email send failed:", error);
+        alert("Something went wrong. Please try again later.");
+      });
   };
 
   return (
